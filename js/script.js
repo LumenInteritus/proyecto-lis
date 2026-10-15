@@ -262,7 +262,7 @@ botonPastel.addEventListener("click", () => {
    La página esperará hasta el cumpleaños.
 */
 
-const modoPrueba = true;
+const modoPrueba = false;
 
 
 /* =========================================
