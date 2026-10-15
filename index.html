@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  >
+<link rel="icon" type="image/png" href="logo.jpg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pastel.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Caveat:wght@600&display=swap" rel="stylesheet">
+</head>
+
+    <!-- =========================================
+         ESCENA PRINCIPAL
+         ========================================= -->
+
+    <main id="pagina">
+
+        <!-- CIELO -->
+        <div class="cielo">
+
+            <div class="estrellas"></div>
+
+            <div class="luna"></div>
+
+            <div class="estrella-fugaz"></div>
+
+            <div class="nubes">
+
+                <div class="nube nube-1"></div>
+                <div class="nube nube-2"></div>
+                <div class="nube nube-3"></div>
+
+            </div>
+
+            <div class="niebla niebla-1"></div>
+            <div class="niebla niebla-2"></div>
+            <div class="niebla niebla-3"></div>
+
+        </div>
+
+
+        <!-- =========================================
+             PORTADA
+             ========================================= -->
+
+        <section class="portada" id="portada">
+
+            <!-- Mensaje esquina -->
+            <div class="mensaje-esquina">
+                Un día<br>
+                más cerca<br>
+                de ti. ♡
+            </div>
+
+
+            <!-- Casa de Snoopy -->
+            <div class="snoopy-portada">
+
+                <img src="img/snoopy.png" alt="Snoopy">
+
+            </div>
+
+            <div class="stitch-portada">
+    <img src="img/stitch3.png" alt="Stitch">
+</div>
+
+            <!-- CONTADOR -->
+            <div class="contador">
+
+                <h1>Faltan</h1>
+
+                <div class="tiempo">
+
+                    <div>
+                        <span id="dias">00</span>
+                        <small>Días</small>
+                    </div>
+
+                    <div>
+                        <span id="horas">00</span>
+                        <small>Horas</small>
+                    </div>
+
+                    <div>
+                        <span id="minutos">00</span>
+                        <small>Minutos</small>
+                    </div>
+
+                    <div>
+                        <span id="segundos">00</span>
+                        <small>Segundos</small>
+                    </div>
+
+                </div>
+
+                <p>para que llegue tu día</p>
+
+                <div class="corazon">
+                    ♡
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             TRANSICIÓN
+             ========================================= -->
+
+        <section class="transicion" id="transicion">
+
+            <img
+                src="img/snoopy2.png"
+                alt="Snoopy"
+                class="snoopy-transicion"
+            >
+
+            <div class="mensaje-transicion">
+
+                <p>
+                    Hay cosas que no se pueden decir<br>
+                    en unas cuantas palabras...
+                </p>
+
+                <button id="botonAbrir">
+                    ♡ Abrir
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CARTA
+             ========================================= -->
+
+        <section class="carta" id="carta">
+
+            <!-- Snoopy izquierda -->
+
+            <div class="snoopy-izquierda">
+
+                <img
+                    src="img/snoopy-joe-cool.png"
+                    alt="Snoopy"
+                >
+
+            </div>
+
+
+            <!-- HOJA -->
+
+            <div class="hoja-carta">
+
+                <div class="decoracion-superior">
+                    ♡
+                </div>
+
+
+                <h2>
+                    Para ti, señora
+                </h2>
+
+
+                <div class="linea-dorada">
+
+                    <span>♡</span>
+
+                </div>
+
+
+                <div class="contenido-carta">
+
+                    <p>
+                        No sabía muy bien cómo empezar esta carta, porque llevamos relativamente poco tiempo conociéndonos y quizá sería raro escribirte algo demasiado grande cuando apenas estamos comenzando a conocernos. Pero supongo que precisamente por eso quise hacerlo.
+
+                        En estas pocas semanas me ha gustado mucho coincidir contigo. Es curioso cómo a veces no hace falta conocer a alguien durante años para sentir que hablar con esa persona resulta fácil, como si poco a poco las conversaciones fueran encontrando su propio camino.
+
+                        Me gusta poder hablar contigo, conocer un poco más de ti y descubrir esas pequeñas cosas que hacen que seas tú. Y aunque todavía me falte muchísimo por conocer, creo que eso también es algo bonito, porque significa que todavía quedan muchas cosas por descubrir.
+
+                        Espero que este nuevo año de tu vida venga acompañado de momentos que realmente te hagan feliz, de personas que sepan apreciar lo que eres y de muchas razones para sonreír incluso en esos días en los que no todo salga como esperabas.
+                    </p>
+
+
+                    <p>
+                       Me alegra haberte conocido.
+
+                       Y entre tantas personas que uno puede encontrar en la vida, me parece bonito que justamente nuestros caminos hayan coincidido.
+                    </p>
+
+
+                    <!-- AQUÍ CONTINUAREMOS LA CARTA -->
+
+             <!-- BOTÓN PARA CONTINUAR -->
+
+            <button id="botonCosas">
+                Continuar ♡
+            </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Casita derecha -->
+
+            <div class="casita-derecha">
+
+                <img
+                    src="img/stitch.png"
+                    alt="Casita de Snoopy"
+                >
+
+            </div>
+
+</section>
+
+
+<!-- =========================================
+     MENSAJES
+     ========================================= -->
+
+<div id="lluviaSnoopy"></div>
+
+<section class="mensajes" id="mensajes">
+
+    <div class="contenedor-mensajes">
+
+        <div class="lista-mensajes">
+
+            <!-- =========================
+                 MENSAJE 1
+                 ========================= -->
+
+            <article class="tarjeta-mensaje tarjeta-1">
+
+                <div class="encabezado-mensaje">
+
+                    <img
+                        src="img/mensajes/persona1.png"
+                        alt="Paulette"
+                    >
+
+                    <span>Paulette</span>
+
+                </div>
+
+                <div class="contenido-mensaje">
+
+                    <p>
+                        "Feliz cumple guapa, eres muy especial para mí,
+                        gracias por hacerme reír y acompañarme en momentos
+                        donde me sentía mal, realmente quiero que te la pases
+                        increíble, gracias por todo, tqmmm."
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 MENSAJE 2
+                 ========================= -->
+
+            <article class="tarjeta-mensaje tarjeta-2">
+
+                <div class="encabezado-mensaje">
+
+                    <img
+                        src="img/mensajes/persona2.png"
+                        alt="Rosa"
+                    >
+
+                    <span>Rosa</span>
+
+                </div>
+
+                <div class="contenido-mensaje">
+
+                    <p>
+                        Feliz Cumpleaños,liz
+
+                        Hoy no es un día cualquiera, porque hace años nació
+                        la persona más linda que se convertiría en mi confidente,
+                        mi amiga y sobre todo la mejor niña que conocí.
+
+                        Me detuve a pensar en todo lo que hemos vivido aunque
+                        sea en un corto tiempo contigo sentí una conexión
+                        inexplicable desde el minuto en que me hablaste me
+                        sentí tan cómoda.
+
+                        Agradezco haber coincidido contigo en esta etapa de
+                        la vida y sobre todo que siempre estés para mí.
+
+                        A veces doy por sentado que siempre estás ahí, pero
+                        hoy quiero detenerme y darte las gracias.
+
+                        Gracias por ser esa persona que me conoce sin filtros,
+                        que sabe cuándo estoy bien aunque diga lo contrario
+                        y que tiene la palabra exacta para cada situación.
+
+                        No cualquiera me tiene la confianza que me das ni el
+                        apoyo, y el hecho de que sigamos aquí, más unidas
+                        que nunca, es la prueba de que nuestra amistad es
+                        real y a prueba de todo.
+
+                        Me encanta saber que, sin importar cuánto pase el
+                        tiempo, siempre tendremos esos momentos que nadie
+                        más entiende.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 MENSAJE 3
+                 ========================= -->
+
+            <article class="tarjeta-mensaje tarjeta-3">
+
+                <div class="encabezado-mensaje">
+
+                    <img
+                        src="img/mensajes/persona3.png"
+                        alt="Yawy"
+                    >
+
+                    <span>Yawy</span>
+
+                </div>
+
+                <div class="contenido-mensaje">
+
+                    <p>
+                        Lis pues muchas felicidades eres una niña muy linda
+                        y especial para mí ya que cuando empezamos a hablar
+                        me gustó tu vibra y eres una niña muy inteligente
+                        aunque a veces no das una pero lo eres.
+
+                        Te quiero mucho y feliz cumpleaños, que te la pases
+                        muy bien con toda tu familia y los que más quieras.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 MENSAJE 4
+                 ========================= -->
+
+            <article class="tarjeta-mensaje tarjeta-4">
+
+                <div class="encabezado-mensaje">
+
+                    <img
+                        src="img/mensajes/persona4.png"
+                        alt="Chichico"
+                    >
+
+                    <span>Chichico (Kevin)</span>
+
+                </div>
+
+                <div class="contenido-mensaje">
+
+                    <p>
+                        Feliz cumpleaños, vete a la verga
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- BOTÓN -->
+
+        <button id="botonPastel">
+            Hay algo más...
+        </button>
+
+    </div>
+
+</section>
+
+
+
+</main>
+
+
+<!-- ESCENA DEL PASTEL -->
+<section id="escenaPastel" aria-label="Pastel de cumpleaños" style="display: none;">
+    <div id="estrellasPastel"></div>
+
+    <div id="wPastel">
+        <canvas id="cPastel" width="96" height="96"></canvas>
+
+        <div class="oPastel" id="titlePastel">
+            <svg viewBox="0 0 100 28" aria-label="Feliz cumpleaños Lissette, te quiero">
+                <defs>
+                    <path id="p1Pastel" d="M 8 15 Q 50 -3 92 15"/>
+                    <path id="p2Pastel" d="M 26 22 Q 50 14 74 22"/>
+                </defs>
+                <text class="a1Pastel">
+                    <textPath href="#p1Pastel" startOffset="50%">FELIZ CUMPLEAÑOS</textPath>
+                </text>
+                <text class="a2Pastel">
+                    <textPath href="#p2Pastel" startOffset="50%">LISSETTE</textPath>
+                </text>
+                <text class="a3Pastel" x="50" y="27">te quiero ✦</text>
+            </svg>
+        </div>
+
+        <div class="oPastel" id="hintPastel">Enciende<br>&nbsp;&nbsp;la vela</div>
+    </div>
+</section>
+
+<script src="js/script.js"></script>
+<script src="js/pastel.js"></script>
+
+<audio id="musicaFondo" loop preload="auto">
+    <source src="audio/musica de fondo.mp3" type="audio/mpeg">
+</audio>
+<script>
+const musicaFondo = document.getElementById("musicaFondo");
+window.musicaFondo = musicaFondo;
+musicaFondo.volume = 0.15;
+
+window.addEventListener("pointerdown", function iniciarMusica() {
+    musicaFondo.play()
+        .then(() => {
+            console.log("🎵 Música iniciada");
+            window.removeEventListener("pointerdown", iniciarMusica);
+        })
+        .catch(error => {
+            console.log("❌ Error al iniciar música:", error);
+        });
+}, true);
+</script>
+</body>
+
+</html>

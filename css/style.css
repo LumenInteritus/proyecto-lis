@@ -1,0 +1,2263 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+
+    background: #080d1a;
+
+    color: #f5ead8;
+
+    font-family: Georgia, serif;
+}
+
+
+/* =========================================
+   PÁGINA
+   ========================================= */
+
+#pagina {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   CIELO
+   ========================================= */
+
+.cielo {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: 0;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 65%,
+            #173456 0%,
+            #0d2038 35%,
+            #071426 68%,
+            #030812 100%
+        );
+}
+
+
+/* =========================================
+   ESTRELLAS
+   ========================================= */
+
+.estrellas {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+.estrella {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: #f8f2df;
+
+    opacity: 0.7;
+
+    box-shadow:
+        0 0 3px rgba(245, 234, 216, 0.35);
+
+    animation:
+        movimiento-estrella 18s linear infinite,
+        brillo-estrella 4s ease-in-out infinite;
+}
+
+
+/* Movimiento */
+
+@keyframes movimiento-estrella {
+
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-25px, 18px, 0);
+    }
+
+}
+
+
+/* Brillo */
+
+@keyframes brillo-estrella {
+
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 0.9;
+    }
+
+}
+
+
+/* Estrellas grandes */
+
+.estrella.grande {
+
+    width: 3px;
+    height: 3px;
+
+    background: #f7dfad;
+
+    box-shadow:
+        0 0 5px rgba(255, 226, 160, 0.95),
+        0 0 12px rgba(220, 170, 80, 0.65),
+        0 0 22px rgba(220, 170, 80, 0.25);
+
+}
+
+
+/* Destellos */
+
+.estrella.destello {
+
+    width: 4px;
+    height: 4px;
+
+    background: #fff0c9;
+
+    box-shadow:
+        0 0 6px #fff0c9,
+        0 0 15px rgba(235, 190, 100, 0.9),
+        0 0 28px rgba(235, 190, 100, 0.4);
+
+}
+
+
+/* =========================================
+   LUNA
+   ========================================= */
+
+.luna {
+
+    position: absolute;
+
+    top: 7%;
+    right: 7%;
+
+    width: 75px;
+    height: 75px;
+
+    border-radius: 50%;
+
+    background: #f5ead8;
+
+    box-shadow:
+        0 0 10px rgba(245, 234, 216, 0.35),
+        0 0 25px rgba(245, 234, 216, 0.15);
+
+    z-index: 2;
+}
+
+
+/* Creciente */
+
+.luna::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 75px;
+    height: 75px;
+
+    border-radius: 50%;
+
+    background: #071226;
+
+    top: -8px;
+    left: 18px;
+
+}
+
+
+/* =========================================
+   ESTRELLA FUGAZ
+   ========================================= */
+
+.estrella-fugaz {
+
+    position: absolute;
+
+    top: 18%;
+    left: 75%;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    opacity: 0;
+
+    z-index: 3;
+
+    animation:
+        estrella-fugaz 15s linear infinite;
+
+}
+
+
+.estrella-fugaz::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    width: 100px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to left,
+            rgba(255, 255, 255, 0.9),
+            transparent
+        );
+
+}
+
+
+@keyframes estrella-fugaz {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(0, 0)
+            rotate(-35deg);
+
+    }
+
+    2% {
+
+        opacity: 1;
+
+    }
+
+    12% {
+
+        opacity: 0;
+
+        transform:
+            translate(-280px, 180px)
+            rotate(-35deg);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(-280px, 180px)
+            rotate(-35deg);
+
+    }
+
+}
+
+
+/* =========================================
+   NIEBLA
+   ========================================= */
+
+.niebla {
+
+    position: absolute;
+
+    left: -10%;
+    bottom: -8%;
+
+    width: 120%;
+    height: 28%;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(18px);
+
+    z-index: 4;
+
+}
+
+
+.niebla-1 {
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(120, 140, 160, 0.28) 0%,
+            rgba(80, 105, 130, 0.20) 40%,
+            transparent 70%
+        );
+
+    transform: translateX(-5%);
+
+}
+
+
+.niebla-2 {
+
+    bottom: -12%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(150, 160, 170, 0.22) 0%,
+            transparent 68%
+        );
+
+    transform: translateX(15%);
+
+}
+
+
+.niebla-3 {
+
+    bottom: -15%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(70, 95, 120, 0.30) 0%,
+            transparent 65%
+        );
+
+    transform: translateX(-15%);
+
+}
+
+
+/* =========================================
+   NUBES
+   ========================================= */
+
+.nubes {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 5;
+
+}
+
+
+.nube {
+
+    position: absolute;
+
+    width: 420px;
+    height: 180px;
+
+    background:
+        radial-gradient(
+            ellipse at 30% 70%,
+            rgba(65, 82, 105, 0.85) 0%,
+            rgba(45, 62, 85, 0.72) 38%,
+            rgba(30, 46, 68, 0.35) 65%,
+            transparent 75%
+        );
+
+    filter: blur(8px);
+
+    opacity: 0.85;
+
+}
+
+
+.nube::before,
+.nube::after {
+
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(80, 96, 118, 0.75) 0%,
+            rgba(50, 68, 92, 0.45) 55%,
+            transparent 75%
+        );
+
+    filter: blur(7px);
+
+}
+
+
+.nube::before {
+
+    width: 230px;
+    height: 130px;
+
+    left: 40px;
+    top: 20px;
+
+}
+
+
+.nube::after {
+
+    width: 260px;
+    height: 140px;
+
+    right: 20px;
+    top: 35px;
+
+}
+
+
+/* Posiciones */
+
+.nube-1 {
+
+    left: -100px;
+    bottom: 0;
+
+    transform: scale(1.45);
+
+}
+
+
+.nube-2 {
+
+    left: 25%;
+    bottom: -3%;
+
+    transform: scale(1.65);
+
+    opacity: 0.65;
+
+}
+
+
+.nube-3 {
+
+    right: -100px;
+    bottom: 0;
+
+    transform: scale(1.45);
+
+    opacity: 0.8;
+
+}
+
+
+/* Movimiento */
+
+.nube-1,
+.nube-3 {
+
+    animation:
+        movimiento-nubes 18s ease-in-out infinite alternate;
+
+}
+
+
+.nube-2 {
+
+    animation:
+        movimiento-nubes 25s ease-in-out infinite alternate-reverse;
+
+}
+
+
+@keyframes movimiento-nubes {
+
+    from {
+
+        transform:
+            translateX(-12px)
+            scale(1.4);
+
+    }
+
+    to {
+
+        transform:
+            translateX(12px)
+            scale(1.4);
+
+    }
+
+}
+
+
+/* =========================================
+   PORTADA
+   ========================================= */
+
+.portada {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    transition:
+        opacity 2.5s ease,
+        transform 2.5s ease;
+
+}
+
+
+.portada.oculta {
+
+    opacity: 0;
+
+    transform:
+        scale(1.03);
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   CONTADOR
+   ========================================= */
+
+.contador {
+
+    position: relative;
+
+    text-align: center;
+
+    transform:
+        translateY(-2vh);
+
+    z-index: 20;
+
+}
+
+
+.contador h1 {
+
+    font-size:
+        clamp(3rem, 5vw, 5rem);
+
+    font-weight: normal;
+
+    margin-bottom: 2rem;
+
+    color: #f5ead8;
+
+    text-shadow:
+        0 0 5px rgba(255, 220, 150, 0.95),
+        0 0 12px rgba(218, 165, 85, 0.75),
+        0 0 25px rgba(218, 165, 85, 0.45),
+        0 0 45px rgba(218, 165, 85, 0.22);
+
+}
+
+
+.tiempo {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap:
+        clamp(30px, 4vw, 70px);
+
+}
+
+
+.tiempo div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+.tiempo span {
+
+    font-size:
+        clamp(3rem, 5vw, 5rem);
+
+    color: #f5ead8;
+
+    text-shadow:
+        0 0 6px rgba(255, 225, 170, 1),
+        0 0 14px rgba(235, 190, 105, 0.95),
+        0 0 28px rgba(218, 165, 85, 0.75),
+        0 0 50px rgba(218, 165, 85, 0.45),
+        0 0 80px rgba(218, 165, 85, 0.22);
+
+}
+
+
+.tiempo small {
+
+    font-size:
+        clamp(1.15rem, 1.8vw, 1.6rem);
+
+    margin-top: 8px;
+
+    color: #f5ead8;
+
+    text-shadow:
+        0 0 5px rgba(255, 220, 150, 0.9),
+        0 0 12px rgba(218, 165, 85, 0.55),
+        0 0 25px rgba(218, 165, 85, 0.25);
+
+}
+
+
+.contador p {
+
+    margin-top: 2rem;
+
+    font-size:
+        clamp(1.3rem, 2vw, 1.8rem);
+
+    font-style: italic;
+
+    color: #f5ead8;
+
+    text-shadow:
+        0 0 5px rgba(255, 220, 150, 0.9),
+        0 0 12px rgba(218, 165, 85, 0.6),
+        0 0 25px rgba(218, 165, 85, 0.3);
+
+}
+
+
+.corazon {
+
+    margin-top: 20px;
+
+    font-size: 2rem;
+
+    color: #f5ead8;
+
+    text-shadow:
+        0 0 5px rgba(255, 220, 150, 1),
+        0 0 12px rgba(218, 165, 85, 0.8),
+        0 0 25px rgba(218, 165, 85, 0.5);
+
+}
+
+
+/* =========================================
+   MENSAJE ESQUINA
+   ========================================= */
+
+.mensaje-esquina {
+
+    position: absolute;
+
+    top: 45px;
+    left: 45px;
+
+    font-size:
+        clamp(1.3rem, 2vw, 1.8rem);
+
+    line-height: 1.45;
+
+    font-style: italic;
+
+    color: #f5ead8;
+
+    z-index: 20;
+
+    text-shadow:
+        0 0 5px rgba(255, 220, 150, 0.9),
+        0 0 12px rgba(218, 165, 85, 0.65),
+        0 0 25px rgba(218, 165, 85, 0.3);
+
+}
+
+
+/* =========================================
+   SNOOPY PORTADA
+   ========================================= */
+
+.snoopy-portada {
+
+    position: absolute;
+
+    right: 1%;
+    bottom: -1%;
+
+    width:
+        clamp(150px, 18vw, 280px);
+
+    z-index: 15;
+
+    animation:
+        snoopy-flotar 5s ease-in-out infinite;
+
+}
+
+
+.snoopy-portada img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+}
+
+
+@keyframes snoopy-flotar {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-5px);
+
+    }
+
+}
+
+/* =========================================
+   STITCH PORTADA
+   ========================================= */
+
+.stitch-portada {
+
+    position: absolute;
+
+    left: 1%;
+    bottom: 1%;
+
+   width: clamp(200px, 22vw, 350px);
+
+    z-index: 15;
+
+    animation:
+        stitch-flotar 5s ease-in-out infinite;
+
+}
+
+.stitch-portada img {
+
+    width: 100%;
+    height: auto;
+    display: block;
+
+}
+
+@keyframes stitch-flotar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+}
+
+/* =========================================
+   TRANSICIÓN
+   ========================================= */
+
+.transicion {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #03050b;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    transition:
+        opacity 3s ease,
+        visibility 3s ease;
+
+}
+
+.transicion.activa {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+.mensaje-transicion {
+
+    text-align: center;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        opacity 2s ease 1s,
+        transform 2s ease 1s;
+
+}
+
+
+.transicion.activa
+.mensaje-transicion {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.mensaje-transicion p {
+
+    color: #f5ead8;
+
+    font-size:
+        clamp(1.7rem, 3vw, 2.6rem);
+
+    font-style: italic;
+
+    line-height: 1.6;
+
+    text-shadow:
+        0 0 6px rgba(255, 225, 170, 1),
+        0 0 14px rgba(235, 190, 105, 0.95),
+        0 0 28px rgba(218, 165, 85, 0.75),
+        0 0 50px rgba(218, 165, 85, 0.45),
+        0 0 80px rgba(218, 165, 85, 0.22);
+
+}
+
+/* =========================================
+   SNOOPY TRANSICIÓN
+   ========================================= */
+
+.snoopy-transicion {
+    position: absolute;
+
+    left: 8%;
+
+    width: clamp(160px, 18vw, 260px);
+
+    height: auto;
+
+    z-index: 1;
+
+    filter:
+        drop-shadow(0 0 6px rgba(255, 225, 160, 0.45))
+        drop-shadow(0 0 18px rgba(218, 165, 85, 0.3));
+}
+
+
+@keyframes flotacion-transicion {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+.mensaje-transicion {
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================
+   BOTÓN
+   ========================================= */
+
+#botonAbrir {
+
+    margin-top: 35px;
+
+    padding: 14px 38px;
+
+    background:
+        rgba(218, 165, 85, 0.04);
+
+    border:
+        1px solid
+        rgba(235, 190, 105, 0.75);
+
+    border-radius: 35px;
+
+    color: #f5ead8;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.15rem;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    box-shadow:
+        0 0 8px rgba(218, 165, 85, 0.35),
+        0 0 20px rgba(218, 165, 85, 0.15);
+
+    text-shadow:
+        0 0 5px rgba(255, 225, 170, 0.8);
+
+    transition:
+        opacity 2s ease 2s,
+        background 0.4s ease,
+        box-shadow 0.4s ease,
+        transform 0.3s ease,
+        border-color 0.4s ease;
+}
+
+
+.transicion.activa
+#botonAbrir {
+
+    opacity: 3;
+
+}
+
+
+#botonAbrir:hover {
+
+    background:
+        rgba(218, 165, 85, 0.14);
+
+    border-color:
+        rgba(255, 225, 160, 1);
+
+    box-shadow:
+        0 0 10px rgba(255, 225, 160, 0.9),
+        0 0 25px rgba(235, 190, 105, 0.8),
+        0 0 50px rgba(218, 165, 85, 0.55),
+        0 0 80px rgba(218, 165, 85, 0.25);
+
+    text-shadow:
+        0 0 6px rgba(255, 225, 170, 1),
+        0 0 15px rgba(235, 190, 105, 0.8);
+
+    transform:
+        scale(1.08);
+}
+
+/* =========================================
+   CARTA
+   ========================================= */
+
+.carta {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 20px;
+
+    overflow: hidden;
+
+   /* MISMO CIELO DE LA PORTADA */
+    background: transparent;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        scale(0.97);
+
+    transition:
+        opacity 3s ease,
+        transform 3s ease,
+        visibility 3s ease;
+
+    z-index: 50;
+
+}
+
+
+.carta.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+        scale(1);
+
+}
+
+
+/* =========================================
+   HOJA
+   ========================================= */
+
+.hoja-carta {
+    position: relative;
+
+    width: min(850px, 65vw);
+    height: min(750px, 85vh);
+
+    padding: 65px 80px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8efdc,
+            #eee1c8
+        );
+
+    border:
+        1px solid
+        rgba(190, 145, 70, 0.55);
+
+    box-shadow:
+        0 0 8px rgba(255, 225, 160, 0.75),
+        0 0 20px rgba(218, 165, 85, 0.65),
+        0 0 45px rgba(218, 165, 85, 0.45),
+        0 0 80px rgba(218, 165, 85, 0.25),
+        0 18px 50px rgba(0, 0, 0, 0.45);
+
+    color: #49321d;
+
+    z-index: 55;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: none;
+
+    animation:
+        aparecer-hoja 3s ease forwards;
+}
+
+.hoja-carta::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes aparecer-hoja {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* Borde interior */
+
+.hoja-carta::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 2px solid rgba(190, 145, 70, 0.55);
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.hoja-carta > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================
+   TÍTULO CARTA
+   ========================================= */
+
+.hoja-carta h2 {
+
+    position: relative;
+
+    text-align: center;
+
+    font-size:
+        clamp(2.5rem, 4vw, 4rem);
+
+    font-weight: normal;
+
+    margin-bottom: 20px;
+
+    color: #4b321b;
+
+    text-shadow:
+        0 0 5px rgba(218, 165, 85, 0.5),
+        0 0 15px rgba(218, 165, 85, 0.25);
+
+}
+
+
+/* =========================================
+   DECORACIÓN
+   ========================================= */
+
+.decoracion-superior {
+
+    position: absolute;
+
+    top: 25px;
+    left: 30px;
+
+    font-size: 1.8rem;
+
+    color: #b98a42;
+
+    text-shadow:
+        0 0 8px rgba(218, 165, 85, 0.6);
+
+}
+
+
+/* =========================================
+   LÍNEA DORADA
+   ========================================= */
+
+.linea-dorada {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 45px;
+
+    color: #a87932;
+
+}
+
+
+.linea-dorada::before,
+.linea-dorada::after {
+
+    content: "";
+
+    width: 120px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #b98a42,
+            transparent
+        );
+
+}
+
+
+.linea-dorada span {
+
+    font-size: 1.2rem;
+
+    text-shadow:
+        0 0 8px rgba(218, 165, 85, 0.7);
+
+}
+
+
+/* =========================================
+   CONTENIDO
+   ========================================= */
+
+.contenido-carta {
+
+    position: relative;
+
+    font-size: 1.25rem;
+
+    line-height: 1.9;
+
+    text-align: left;
+
+}
+
+
+.contenido-carta p {
+
+    margin-bottom: 28px;
+
+}
+
+
+/* =========================================
+   SNOOPY IZQUIERDA
+   ========================================= */
+
+.snoopy-izquierda {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    width: clamp(120px, 14vw, 210px);
+
+    z-index: 20;
+
+    filter:
+        drop-shadow(0 0 10px rgba(218, 165, 85, 0.25));
+
+    animation: flotacion-carta 5s ease-in-out infinite;
+}
+
+.snoopy-izquierda img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.snoopy-izquierda img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+}
+
+
+/* =========================================
+   CASITA DERECHA
+   ========================================= */
+
+.casita-derecha {
+    position: absolute;
+    right: -2%;
+    bottom: -1%;
+    width: clamp(180px, 20vw, 300px);
+    z-index: 60;
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(218, 165, 85, 0.25)
+        );
+    animation:
+        flotacion-carta 5s ease-in-out infinite;
+}
+
+.casita-derecha img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+}
+
+
+@keyframes flotacion-carta {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-6px);
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .mensaje-esquina {
+
+        top: 25px;
+        left: 25px;
+
+        font-size: 1.1rem;
+
+        .snoopy-transicion {
+    left: 2%;
+    width: 110px;
+    opacity: 0.9;
+}
+    }
+
+
+    .tiempo {
+
+        gap: 15px;
+
+    }
+
+
+    .tiempo span {
+
+        font-size: 2.2rem;
+
+    }
+
+
+    .tiempo small {
+
+        font-size: 0.9rem;
+
+    }
+
+
+    .snoopy-portada {
+
+        width: 150px;
+
+    }
+
+
+    .hoja-carta {
+
+        width: 90vw;
+
+        min-height: 80vh;
+
+        padding:
+            55px 35px;
+
+    }
+
+
+    .snoopy-izquierda {
+
+        width: 120px;
+
+        left: -2%;
+
+    }
+
+
+    .casita-derecha {
+
+        width: 140px;
+
+        right: -3%;
+
+    }
+
+}
+
+/* =========================================
+   BOTÓN COSAS
+   ========================================= */
+
+#botonCosas {
+
+    display: block;
+
+    margin: 55px auto 20px;
+
+    padding: 14px 38px;
+
+    background: rgba(218, 165, 85, 0.04);
+
+    border: 1px solid rgba(235, 190, 105, 0.75);
+
+    border-radius: 35px;
+
+    color: #49321d;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.15rem;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 8px rgba(218, 165, 85, 0.35),
+        0 0 20px rgba(218, 165, 85, 0.15);
+
+    text-shadow:
+        0 0 5px rgba(218, 165, 85, 0.45);
+
+    transition:
+        background 0.4s ease,
+        box-shadow 0.4s ease,
+        transform 0.3s ease,
+        border-color 0.4s ease;
+}
+
+
+#botonCosas:hover {
+
+    background: rgba(218, 165, 85, 0.14);
+
+    border-color: rgba(255, 225, 160, 1);
+
+    box-shadow:
+        0 0 10px rgba(255, 225, 160, 0.9),
+        0 0 25px rgba(235, 190, 105, 0.8),
+        0 0 50px rgba(218, 165, 85, 0.55),
+        0 0 80px rgba(218, 165, 85, 0.25);
+
+    text-shadow:
+        0 0 6px rgba(255, 225, 170, 1),
+        0 0 15px rgba(235, 190, 105, 0.8);
+
+    transform: scale(1.08);
+}
+
+/* =========================================
+   LLUVIA DE SNOOPY
+   ========================================= */
+
+#lluviaSnoopy {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 200;
+
+    visibility: hidden;
+}
+
+
+/* Cada Snoopy */
+
+.snoopy-lluvia {
+
+    position: absolute;
+
+    height: auto;
+
+    max-width: none;
+
+    opacity: 0;
+
+    filter:
+        drop-shadow(0 0 5px rgba(255, 225, 160, 0.35));
+
+    will-change: transform, opacity;
+
+    transition:
+        opacity 0.25s ease;
+}
+
+
+/* Activación */
+
+#lluviaSnoopy.activa {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Entrada */
+
+#lluviaSnoopy.activa .snoopy-lluvia {
+
+    opacity: 1;
+
+    animation:
+        aparecer-snoopy 0.45s ease-out forwards;
+}
+
+
+@keyframes aparecer-snoopy {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.35)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* Salida */
+
+#lluviaSnoopy.saliendo .snoopy-lluvia {
+    opacity: 0;
+    transform: scale(1.15);
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+
+    transition-delay: var(--retraso-salida);
+}
+
+/* =========================
+   MENSAJES
+   ========================= */
+
+.mensajes {
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 80;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(4, 7, 15, 0.96);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+
+}
+
+
+.mensajes.visible {
+
+    opacity: 1;
+    visibility: visible;
+
+}
+
+
+/* =========================================
+   CONTENEDOR
+   ========================================= */
+
+.contenedor-mensajes {
+
+    position: relative;
+
+    width: min(1050px, 90vw);
+    height: min(850px, 88vh);
+
+    padding: 130px 45px 55px;
+
+    overflow-y: auto;
+
+    scrollbar-width: none;
+
+    text-align: center;
+
+    z-index: 2;
+
+}
+
+
+.contenedor-mensajes::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+
+/* =========================================
+   TÍTULO
+   ========================================= */
+
+.contenedor-mensajes h2 {
+
+    margin-bottom: 15px;
+
+    color: #f5ead8;
+
+    font-family: Georgia, serif;
+
+    font-size:
+        clamp(2rem, 4vw, 3rem);
+
+    font-weight: normal;
+
+    text-shadow:
+        0 0 8px rgba(218, 165, 85, 0.7),
+        0 0 22px rgba(218, 165, 85, 0.35);
+
+}
+
+
+.intro-mensajes {
+
+    max-width: 650px;
+
+    margin: 25px auto 45px;
+
+    color: #e9dcc7;
+
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================
+   LISTA DE TARJETAS
+   ========================================= */
+
+.lista-mensajes {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 340px);
+
+    justify-content: center;
+
+    column-gap: 55px;
+    row-gap: 30px;
+
+    width: 100%;
+
+    margin: 35px auto 0;
+
+}
+
+
+/* =========================================
+   TARJETA PEQUEÑA
+   ========================================= */
+
+.tarjeta-mensaje {
+
+    position: relative;
+
+    width: 340px;
+    height: 105px;
+
+    padding: 16px 24px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(245, 234, 216, 0.98),
+            rgba(224, 207, 178, 0.96)
+        );
+
+    border:
+        1px solid
+        rgba(218, 165, 85, 0.75);
+
+    border-radius: 14px;
+
+    color: #49321d;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 10px rgba(218, 165, 85, 0.25),
+        0 10px 30px rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+
+}
+
+
+/* =========================================
+   ENCABEZADO
+   ========================================= */
+
+.encabezado-mensaje {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+}
+
+
+.encabezado-mensaje img {
+
+    width: 64px;
+    height: 64px;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(184, 135, 63, 0.75);
+
+    background: #f5ead8;
+
+    box-shadow:
+        0 0 8px
+        rgba(218, 165, 85, 0.3);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+}
+
+
+.encabezado-mensaje span {
+
+    color: #49321d;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.2rem;
+
+    font-weight: bold;
+
+}
+
+/* =========================================
+   CONTENIDO OCULTO
+   ========================================= */
+
+.contenido-mensaje {
+
+    display: none;
+
+}
+
+
+/* =========================================
+   TARJETA ABIERTA
+   ========================================= */
+
+.tarjeta-mensaje.abierta {
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    width: min(850px, 82vw);
+
+    height: min(650px, 76vh);
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 500;
+
+    display: block;
+
+    padding: 38px 50px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8eedc,
+            #e6d5b8
+        );
+
+    border:
+        1px solid
+        rgba(218, 165, 85, 0.9);
+
+    box-shadow:
+        0 0 10px rgba(255, 225, 160, 1),
+        0 0 25px rgba(235, 190, 105, 0.9),
+        0 0 55px rgba(218, 165, 85, 0.65),
+        0 25px 60px rgba(0, 0, 0, 0.65);
+
+}
+
+
+/* =========================================
+   ENCABEZADO ABIERTA
+   ========================================= */
+
+.tarjeta-mensaje.abierta .encabezado-mensaje {
+
+    margin-bottom: 30px;
+
+}
+
+
+.tarjeta-mensaje.abierta
+.encabezado-mensaje img {
+
+    width: 72px;
+    height: 72px;
+
+    box-shadow:
+        0 0 12px rgba(255, 225, 160, 0.8),
+        0 0 25px rgba(218, 165, 85, 0.5);
+
+}
+
+
+.tarjeta-mensaje.abierta
+.encabezado-mensaje span {
+
+    font-size: 1.35rem;
+
+}
+
+
+/* =========================================
+   TEXTO AL ABRIR
+   ========================================= */
+
+.tarjeta-mensaje.abierta
+.contenido-mensaje {
+
+    display: block;
+
+    height: calc(100% - 120px);
+
+    overflow-y: auto;
+
+    padding-right: 15px;
+
+    text-align: left;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(184, 135, 63, 0.7)
+        transparent;
+
+}
+
+
+.tarjeta-mensaje.abierta
+.contenido-mensaje::-webkit-scrollbar {
+
+    width: 6px;
+
+}
+
+
+.tarjeta-mensaje.abierta
+.contenido-mensaje::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(184, 135, 63, 0.7);
+
+    border-radius: 10px;
+
+}
+
+
+.tarjeta-mensaje.abierta
+.contenido-mensaje p {
+
+    margin: 0;
+
+    color: #49321d;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.08rem;
+
+    line-height: 1.85;
+
+    white-space: pre-line;
+
+}
+
+
+/* =========================================
+   EFECTO HOVER
+   ========================================= */
+
+.tarjeta-mensaje:not(.abierta):hover {
+
+    transform:
+        translateY(-7px)
+        scale(1.025);
+
+    border-color:
+        rgba(255, 211, 120, 1);
+
+    box-shadow:
+        0 0 10px rgba(255, 225, 160, 0.9),
+        0 0 25px rgba(235, 190, 105, 0.75),
+        0 0 45px rgba(218, 165, 85, 0.45),
+        0 15px 35px rgba(0, 0, 0, 0.45);
+
+}
+
+
+.tarjeta-mensaje:not(.abierta):hover
+.encabezado-mensaje img {
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 10px rgba(255, 225, 160, 0.9),
+        0 0 22px rgba(218, 165, 85, 0.6);
+
+}
+
+
+/* =========================================
+   DISTRIBUCIÓN
+   ========================================= */
+
+.tarjeta-1 {
+    transform: rotate(-1.5deg);
+}
+
+.tarjeta-2 {
+    transform: rotate(1.5deg);
+}
+
+.tarjeta-3 {
+    transform: rotate(1deg);
+}
+
+.tarjeta-4 {
+    transform: rotate(-1deg);
+}
+
+
+/* =========================================
+   CUANDO ESTÁ ABIERTA
+   ========================================= */
+
+.tarjeta-mensaje.abierta.tarjeta-1,
+.tarjeta-mensaje.abierta.tarjeta-2,
+.tarjeta-mensaje.abierta.tarjeta-3,
+.tarjeta-mensaje.abierta.tarjeta-4 {
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+
+/* =========================================
+   DECORACIÓN
+   ========================================= */
+
+.mensajes::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    top: 10px;
+    left: 10px;
+
+    background-image:
+        url("../img/stitch6.png");
+
+    background-repeat: no-repeat;
+
+    background-size: contain;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+}
+
+
+.mensajes::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 210px;
+    height: 210px;
+
+    right: 15px;
+    bottom: 10px;
+
+    background-image:
+        url("../img/snoopy-lluvia-1.png");
+
+    background-repeat: no-repeat;
+
+    background-size: contain;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+}
+
+
+/* =========================================
+   MÓVIL
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .contenedor-mensajes {
+
+        width: 92vw;
+        height: 90vh;
+
+        padding: 40px 20px;
+
+    }
+
+
+    .lista-mensajes {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+    }
+
+
+    .tarjeta-mensaje {
+
+        height: 105px;
+
+        transform: none;
+
+    }
+
+
+    .tarjeta-mensaje.abierta {
+
+        width: 90vw;
+
+        height: 80vh;
+
+        padding: 35px 25px;
+
+    }
+
+
+    .tarjeta-mensaje.abierta
+    .contenido-mensaje p {
+
+        font-size: 1rem;
+
+        line-height: 1.7;
+
+    }
+
+}
+
+
+/* =========================================
+   BOTÓN — PASTEL
+   ========================================= */
+
+#botonPastel {
+    display: block;
+
+    margin: 50px auto 10px;
+
+    padding: 16px 42px;
+
+    background: rgba(218, 165, 85, 0.06);
+
+    border: 1px solid rgba(235, 190, 105, 0.8);
+
+    border-radius: 35px;
+
+    color: #f5ead8;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.15rem;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 8px rgba(218, 165, 85, 0.4),
+        0 0 20px rgba(218, 165, 85, 0.2),
+        0 0 35px rgba(218, 165, 85, 0.08);
+
+    text-shadow:
+        0 0 6px rgba(255, 225, 170, 0.9);
+
+    transition:
+        background 0.4s ease,
+        box-shadow 0.4s ease,
+        transform 0.3s ease,
+        border-color 0.4s ease;
+}
+
+#botonPastel:hover {
+
+    background: rgba(218, 165, 85, 0.14);
+
+    border-color: rgba(255, 225, 160, 1);
+
+    box-shadow:
+        0 0 10px rgba(255, 225, 160, 0.95),
+        0 0 25px rgba(235, 190, 105, 0.85),
+        0 0 50px rgba(218, 165, 85, 0.6),
+        0 0 80px rgba(218, 165, 85, 0.3);
+
+    text-shadow:
+        0 0 6px rgba(255, 225, 170, 1),
+        0 0 15px rgba(235, 190, 105, 0.8);
+
+    transform: scale(1.06);
+}
+
+#botonPastel:active {
+    transform: scale(0.98);
+}

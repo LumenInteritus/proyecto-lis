@@ -1,0 +1,143 @@
+
+#escenaPastel {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    background: #000;
+    color-scheme: dark;
+
+    --s: min(94vw, 86vh, 560px);
+
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+#escenaPastel * {
+    box-sizing: border-box;
+}
+
+#wPastel {
+    position: relative;
+    z-index: 1;
+
+    width: var(--s);
+    height: var(--s);
+    flex: 0 0 auto;
+
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#cPastel {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+    opacity: 1;
+}
+
+.oPastel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    color: #FFB347;
+    text-shadow: 0 0 12px rgba(255,150,40,.6);
+}
+
+#titlePastel {
+    top: 1%;
+    height: auto;
+    z-index: 5;
+    filter: drop-shadow(0 0 6px rgba(255,150,40,.6));
+}
+
+#titlePastel svg {
+    width: 100%;
+    display: block;
+    overflow: visible;
+}
+
+#titlePastel text {
+    fill: #FFB347;
+    text-anchor: middle;
+}
+
+.a1Pastel {
+    font-family: "Press Start 2P", monospace;
+    font-size: 4.1px;
+}
+
+.a2Pastel {
+    font-family: "Press Start 2P", monospace;
+    font-size: 6px;
+    fill: #FFD08A !important;
+}
+
+.a3Pastel {
+    font-family: Caveat, cursive;
+    font-size: 6px;
+    fill: #FFC46B !important;
+}
+
+#hintPastel {
+    top: 47%;
+    left: auto;
+    right: 2%;
+    width: 34%;
+    text-align: left;
+    font-family: Caveat, "Segoe Script", cursive;
+    font-weight: 600;
+    font-size: calc(var(--s) * .085);
+    line-height: 1;
+    transform: rotate(-4deg);
+}
+
+#estrellasPastel {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+
+    pointer-events: none;
+    overflow: hidden;
+
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+.estrellaPastel {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: .6;
+    box-shadow: 0 0 4px rgba(255,255,255,.8);
+    animation: parpadeoPastel 3s ease-in-out infinite;
+}
+
+.estrellaPastel.grande {
+    width: 3px;
+    height: 3px;
+    opacity: .9;
+    box-shadow: 0 0 5px rgba(255,255,255,.9),
+                0 0 10px rgba(255,190,90,.7);
+}
+
+@keyframes parpadeoPastel {
+    0%, 100% {
+        opacity: .2;
+        transform: scale(.7);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
